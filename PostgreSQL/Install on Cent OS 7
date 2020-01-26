@@ -1,0 +1,37 @@
+#rpm -Uvh https://yum.postgresql.org/10/redhat/rhel-7-x86_64/pgdg-centos10-10-2.noarch.rpm
+
+#yum install postgresql10-server postgresql10 postgresql-contrib
+
+#/usr/pgsql-10/bin/postgresql-10-setup initdb
+Intializing Database ... Ok
+
+#systemctl start postgresql-10.service && systemctl enable postgresql-10.service
+
+ systemctl status postgresql-10.service
+● postgresql-10.service - PostgreSQL 10 database server
+   Loaded: loaded (/usr/lib/systemd/system/postgresql-10.service; enabled; vendor preset: disabled)
+   Active: active (running) since Sun 2020-01-26 21:29:37 IST; 1h 33min ago
+     Docs: https://www.postgresql.org/docs/10/static/
+ Main PID: 8713 (postmaster)
+
+# vi /var/lib/pgsql/data/pg_hba.conf
+
+# TYPE  DATABASE        USER            ADDRESS                 METHOD
+
+# "local" is for Unix domain socket connections only
+local   all             all                                     peer
+# IPv4 local connections:
+host    all             all             127.0.0.1/32            trust           - Change to trust
+
+sudo -i -u postgres
+
+psql
+
+CREATE ROLE confluenceuser WITH LOGIN PASSWORD 'confluence' VALID UNTIL 'infinity';
+CREATE ROLE
+postgres=# CREATE DATABASE confluencedb WITH ENCODING='UTF8' OWNER=confluenceuser CONNECTION LIMIT=-1;
+CREATE DATABASE
+postgres=# \l
+
+
+GRANT ALL PRIVILEGES ON DATABASE bitbucketdb to confluenceuser;
