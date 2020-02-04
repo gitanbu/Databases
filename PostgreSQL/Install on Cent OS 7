@@ -28,9 +28,9 @@ sudo -i -u postgres
 psql
 
 CREATE ROLE confluenceuser WITH LOGIN PASSWORD 'confluence' VALID UNTIL 'infinity';
-CREATE ROLE
-postgres=# CREATE DATABASE confluencedb WITH ENCODING='UTF8' OWNER=confluenceuser CONNECTION LIMIT=-1;
-CREATE DATABASE
+
+CREATE DATABASE confluencedb WITH ENCODING='UTF8' OWNER=confluenceuser CONNECTION LIMIT=-1;
+
 postgres=# \l
 
 
