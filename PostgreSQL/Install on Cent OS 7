@@ -14,7 +14,7 @@ Intializing Database ... Ok
      Docs: https://www.postgresql.org/docs/10/static/
  Main PID: 8713 (postmaster)
 
-# vi /var/lib/pgsql/data/pg_hba.conf
+# vi /var/lib/pgsql/10/data/pg_hba.conf
 
 # TYPE  DATABASE        USER            ADDRESS                 METHOD
 
