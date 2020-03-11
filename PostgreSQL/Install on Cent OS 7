@@ -29,7 +29,7 @@ psql
 
 CREATE ROLE confluenceuser WITH LOGIN PASSWORD 'confluence' VALID UNTIL 'infinity';
 
-CREATE DATABASE confluencedb WITH ENCODING='UTF8' OWNER=confluenceuser CONNECTION LIMIT=-1;
+CREATE DATABASE confluencedb WITH ENCODING='POSIX.UTF-8' OWNER=confluenceuser CONNECTION LIMIT=-1;
 
 postgres=# \l
 
