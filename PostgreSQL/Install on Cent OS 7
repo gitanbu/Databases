@@ -27,11 +27,11 @@ sudo -i -u postgres
 
 psql
 
-CREATE ROLE confluenceuser WITH LOGIN PASSWORD 'confluence' VALID UNTIL 'infinity';
-
-CREATE DATABASE confluencedb WITH ENCODING='POSIX.UTF-8' OWNER=confluenceuser CONNECTION LIMIT=-1;
-
-postgres=# \l
+CREATE ROLE rntbciuser WITH LOGIN PASSWORD 'rntbci' VALID UNTIL 'infinity';
 
 
-GRANT ALL PRIVILEGES ON DATABASE bitbucketdb to confluenceuser;
+CREATE DATABASE rntbcidb WITH ENCODING 'UNICODE' LC_COLLATE 'C' LC_CTYPE 'C' TEMPLATE template0 OWNER=rntbciuser CONNECTION LIMIT=-1;
+
+postgres=# \l    - *To list the Databases*
+
+GRANT ALL PRIVILEGES ON DATABASE rntbcidb to rntbciuser;
