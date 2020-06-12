@@ -27,11 +27,11 @@ sudo -i -u postgres
 
 psql
 
-CREATE ROLE rntbciuser WITH LOGIN PASSWORD 'rntbci' VALID UNTIL 'infinity';
+CREATE ROLE anbuuser WITH LOGIN PASSWORD 'rntbci' VALID UNTIL 'infinity';
 
 
-CREATE DATABASE rntbcidb WITH ENCODING 'UNICODE' LC_COLLATE 'C' LC_CTYPE 'C' TEMPLATE template0 OWNER=rntbciuser CONNECTION LIMIT=-1;
+CREATE DATABASE anbudb WITH ENCODING 'UNICODE' LC_COLLATE 'C' LC_CTYPE 'C' TEMPLATE template0 OWNER=anbuuser CONNECTION LIMIT=-1;
 
 postgres=# \l    - *To list the Databases*
 
-GRANT ALL PRIVILEGES ON DATABASE rntbcidb to rntbciuser;
+GRANT ALL PRIVILEGES ON DATABASE anbudb to anbuuser;
