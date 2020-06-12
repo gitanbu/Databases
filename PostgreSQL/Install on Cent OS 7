@@ -27,7 +27,7 @@ sudo -i -u postgres
 
 psql
 
-CREATE ROLE anbuuser WITH LOGIN PASSWORD 'rntbci' VALID UNTIL 'infinity';
+CREATE ROLE anbuuser WITH LOGIN PASSWORD 'anbu' VALID UNTIL 'infinity';
 
 
 CREATE DATABASE anbudb WITH ENCODING 'UNICODE' LC_COLLATE 'C' LC_CTYPE 'C' TEMPLATE template0 OWNER=anbuuser CONNECTION LIMIT=-1;
