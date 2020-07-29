@@ -1,0 +1,33 @@
+yum install https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-7-x86_64/pgdg-centos96-9.6-3.noarch.rpm
+
+yum install pgdg-centos96-9.6-3.noarch.rpm epel-release
+
+yum install postgresql96-server postgresql96-contrib
+
+sudo /usr/pgsql-9.6/bin/postgresql96-setup initdb
+
+systemctl start postgresql-9.6
+
+systemctl enable postgresql-9.6
+
+vi /var/lib/pgsql/9.6/data/pg_hba.conf
+
+# TYPE  DATABASE        USER            ADDRESS                 METHOD
+
+# "local" is for Unix domain socket connections only
+local   all             all                                     peer
+# IPv4 local connections:
+host    all             all             127.0.0.1/32            trust           - Change to trust
+
+sudo -i -u postgres
+
+psql
+
+CREATE ROLE anbuuser WITH LOGIN PASSWORD 'anbu' VALID UNTIL 'infinity';
+
+
+CREATE DATABASE anbudb WITH ENCODING 'UNICODE' LC_COLLATE 'C' LC_CTYPE 'C' TEMPLATE template0 OWNER=anbuuser CONNECTION LIMIT=-1;
+
+postgres=# \l    - *To list the Databases*
+
+GRANT ALL PRIVILEGES ON DATABASE anbudb to anbuuser;
